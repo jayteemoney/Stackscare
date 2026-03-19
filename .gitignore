@@ -1,0 +1,30 @@
+# Environment files (never commit real keys)
+.env
+.env.local
+.env.*.local
+backend/.env
+frontend/.env.local
+!.env.example
+!backend/.env.example
+!frontend/.env.example
+
+# Node
+node_modules/
+.next/
+dist/
+build/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
+
+# Clarinet cache
+.cache/
+
+# OS
+.DS_Store
+Thumbs.db
