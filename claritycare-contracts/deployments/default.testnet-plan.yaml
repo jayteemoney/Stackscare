@@ -1,0 +1,25 @@
+---
+id: 0
+name: Testnet deployment
+network: testnet
+stacks-node: "https://api.testnet.hiro.so"
+bitcoin-node: "http://blockstack:blockstacksystem@bitcoind.testnet.stacks.co:18332"
+plan:
+  batches:
+    - id: 0
+      transactions:
+        - contract-publish:
+            contract-name: molbot-registry
+            expected-sender: STV9VBEA4NB0Q2N67HD6AXP2MGSEKVAJFC8GFTT7
+            cost: 54550
+            path: contracts/molbot-registry.clar
+            anchor-block-only: true
+            clarity-version: 4
+        - contract-publish:
+            contract-name: stackscare
+            expected-sender: STV9VBEA4NB0Q2N67HD6AXP2MGSEKVAJFC8GFTT7
+            cost: 62770
+            path: contracts/stackscare.clar
+            anchor-block-only: true
+            clarity-version: 4
+      epoch: "3.3"
