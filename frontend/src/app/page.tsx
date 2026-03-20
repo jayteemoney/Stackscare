@@ -5,6 +5,7 @@
  * so @stacks/connect browser-only modules are never imported during SSR.
  */
 import Link from "next/link";
+import Image from "next/image";
 import {
   Shield,
   Sparkles,
@@ -16,6 +17,10 @@ import {
   Globe,
   Cpu,
   Key,
+  Github,
+  Twitter,
+  BookOpen,
+  ExternalLink,
 } from "lucide-react";
 import { DynamicWalletConnect as WalletConnect } from "@/components/DynamicWalletConnect";
 
@@ -100,9 +105,7 @@ export default function LandingPage() {
       <nav className="fixed top-0 inset-x-0 z-50 glass border-b border-white/5">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3.5">
           <div className="flex items-center gap-2.5">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 shadow-lg shadow-indigo-500/30">
-              <Shield className="h-4 w-4 text-white" aria-hidden="true" />
-            </div>
+            <Image src="/logo.jpeg" alt="StacksCare logo" width={32} height={32} className="rounded-lg" />
             <span className="text-base font-bold tracking-tight">StacksCare</span>
           </div>
 
@@ -151,7 +154,7 @@ export default function LandingPage() {
         <div className="animate-fade-up-3 relative z-10 mt-10 flex flex-col items-center gap-3 sm:flex-row">
           <Link
             href="/dashboard"
-            className="group flex items-center gap-2 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 px-7 py-3.5 text-base font-semibold text-white shadow-lg shadow-indigo-500/25 transition hover:shadow-indigo-500/40 hover:scale-[1.02] active:scale-[0.98]"
+            className="group flex items-center gap-2 rounded-xl bg-linear-to-r from-indigo-600 to-violet-600 px-7 py-3.5 text-base font-semibold text-white shadow-lg shadow-indigo-500/25 transition hover:shadow-indigo-500/40 hover:scale-[1.02] active:scale-[0.98]"
           >
             Launch App
             <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
@@ -182,13 +185,13 @@ export default function LandingPage() {
         {/* Scroll cue */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40">
           <span className="text-xs text-slate-500">Scroll to explore</span>
-          <div className="h-6 w-px bg-gradient-to-b from-slate-500 to-transparent" />
+          <div className="h-6 w-px bg-linear-to-b from-slate-500 to-transparent" />
         </div>
       </section>
 
       {/* ── Stats Bar ──────────────────────────────── */}
-      <section className="border-y border-white/5 bg-white/[0.02]">
-        <div className="mx-auto grid max-w-5xl grid-cols-2 divide-x divide-y divide-white/5 sm:grid-cols-4 sm:divide-y-0">
+      <section className="border-y border-white/5 bg-white/2">
+        <div className="mx-auto grid max-w-5xl grid-cols-2 divide-y divide-white/5 sm:grid-cols-4 sm:divide-x sm:divide-y-0">
           {STATS.map((s) => (
             <div key={s.label} className="flex flex-col items-center gap-1 px-6 py-8">
               <span className="shimmer-text text-2xl font-extrabold sm:text-3xl">{s.value}</span>
@@ -213,7 +216,7 @@ export default function LandingPage() {
           control and your data private.
         </p>
 
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
           {FEATURES.map((f) => (
             <div
               key={f.title}
@@ -221,9 +224,9 @@ export default function LandingPage() {
               style={{ boxShadow: `0 0 40px ${f.glow}` }}
             >
               {/* Top accent line */}
-              <div className={`absolute inset-x-0 top-0 h-px bg-gradient-to-r ${f.accent} opacity-60`} />
+              <div className={`absolute inset-x-0 top-0 h-px bg-linear-to-r ${f.accent} opacity-60`} />
 
-              <div className={`mb-5 inline-flex rounded-xl bg-gradient-to-br ${f.accent} p-3 shadow-lg`}>
+              <div className={`mb-5 inline-flex rounded-xl bg-linear-to-br ${f.accent} p-3 shadow-lg`}>
                 <f.icon className="h-6 w-6 text-white" aria-hidden="true" />
               </div>
 
@@ -238,7 +241,7 @@ export default function LandingPage() {
       </section>
 
       {/* ── How it works ───────────────────────────── */}
-      <section id="how-it-works" className="border-y border-white/5 bg-white/[0.015] py-28">
+      <section id="how-it-works" className="border-y border-white/5 bg-white/1.5 py-28">
         <div className="mx-auto max-w-7xl px-6">
           <div className="mb-4 text-center">
             <span className="rounded-full border border-indigo-500/30 bg-indigo-500/10 px-3.5 py-1 text-xs font-semibold uppercase tracking-widest text-indigo-400">
@@ -258,7 +261,7 @@ export default function LandingPage() {
               <div key={s.n} className="relative flex flex-col">
                 {/* Connector line (between cards on large screens) */}
                 {i < STEPS.length - 1 && (
-                  <div className="absolute right-0 top-8 hidden h-px w-6 bg-gradient-to-r from-indigo-500/50 to-transparent lg:block translate-x-full" />
+                  <div className="absolute right-0 top-8 hidden h-px w-6 bg-linear-to-r from-indigo-500/50 to-transparent lg:block translate-x-full" />
                 )}
 
                 <div className="glass-card flex flex-col gap-4 rounded-2xl p-6 h-full">
@@ -281,7 +284,7 @@ export default function LandingPage() {
 
       {/* ── Security Section ───────────────────────── */}
       <section id="security" className="mx-auto max-w-7xl px-6 py-28">
-        <div className="relative overflow-hidden rounded-3xl border border-white/8 bg-gradient-to-br from-indigo-950/80 to-violet-950/60 p-10 sm:p-16">
+        <div className="relative overflow-hidden rounded-3xl border border-white/8 bg-linear-to-br from-indigo-950/80 to-violet-950/60 p-6 sm:p-10 lg:p-16">
           {/* Background glow */}
           <div
             className="pointer-events-none absolute -right-20 -top-20 h-80 w-80 rounded-full opacity-30"
@@ -332,7 +335,7 @@ export default function LandingPage() {
       </section>
 
       {/* ── CTA Banner ─────────────────────────────── */}
-      <section className="border-t border-white/5 bg-gradient-to-b from-indigo-950/30 to-[#030711] py-24">
+      <section className="border-t border-white/5 bg-linear-to-b from-indigo-950/30 to-[#030711] py-24">
         <div className="mx-auto max-w-2xl px-6 text-center">
           <h2 className="mb-4 text-4xl font-extrabold tracking-tight">
             Ready to own your{" "}
@@ -344,7 +347,7 @@ export default function LandingPage() {
           <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
             <Link
               href="/dashboard"
-              className="group flex items-center gap-2 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-indigo-500/25 transition hover:scale-[1.02]"
+              className="group flex items-center gap-2 rounded-xl bg-linear-to-r from-indigo-600 to-violet-600 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-indigo-500/25 transition hover:scale-[1.02]"
             >
               Open Dashboard
               <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
@@ -363,27 +366,164 @@ export default function LandingPage() {
 
       {/* ── Footer ─────────────────────────────────── */}
       <footer className="border-t border-white/5 bg-[#030711]">
-        <div className="mx-auto max-w-7xl px-6 py-10">
-          <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
-            <div className="flex items-center gap-2.5">
-              <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600">
-                <Shield className="h-3.5 w-3.5 text-white" aria-hidden="true" />
+        <div className="mx-auto max-w-7xl px-6 py-16">
+
+          {/* Top row — brand + columns */}
+          <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+
+            {/* Brand */}
+            <div className="lg:col-span-1">
+              {/* Logo */}
+              <div className="flex items-center gap-3 mb-4">
+                <Image src="/logo.jpeg" alt="StacksCare logo" width={40} height={40} className="rounded-xl" />
+                <span className="text-base font-bold tracking-tight text-white">StacksCare</span>
               </div>
-              <span className="font-bold text-sm text-slate-300">StacksCare</span>
+              <p className="text-sm leading-relaxed text-slate-500 mb-5">
+                Patient-owned health records on Stacks. Encrypted, private, and secured by Bitcoin.
+              </p>
+              {/* Social links */}
+              <div className="flex items-center gap-3">
+                <a
+                  href="https://github.com/jayteemoney/Stackscare"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub"
+                  className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/8 bg-white/5 text-slate-400 transition hover:border-indigo-500/30 hover:text-indigo-400"
+                >
+                  <Github size={15} />
+                </a>
+                <a
+                  href="https://twitter.com/jayteemoney"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Twitter / X"
+                  className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/8 bg-white/5 text-slate-400 transition hover:border-sky-500/30 hover:text-sky-400"
+                >
+                  <Twitter size={15} />
+                </a>
+                <a
+                  href="https://explorer.hiro.so/?chain=testnet"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Hiro Explorer"
+                  className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/8 bg-white/5 text-slate-400 transition hover:border-violet-500/30 hover:text-violet-400"
+                >
+                  <Globe size={15} />
+                </a>
+              </div>
             </div>
 
-            <p className="text-xs text-slate-600 text-center">
-              Clarity · Stacks · Mistral AI · IPFS · Next.js
-            </p>
+            {/* Documentation */}
+            <div>
+              <h4 className="mb-4 text-xs font-bold uppercase tracking-widest text-slate-400 flex items-center gap-2">
+                <BookOpen size={13} />
+                Documentation
+              </h4>
+              <ul className="space-y-2.5">
+                {[
+                  { label: "Overview & Vision", href: "https://github.com/jayteemoney/Stackscare/blob/main/docs/OVERVIEW.md" },
+                  { label: "Architecture", href: "https://github.com/jayteemoney/Stackscare/blob/main/docs/ARCHITECTURE.md" },
+                  { label: "Smart Contracts", href: "https://github.com/jayteemoney/Stackscare/blob/main/docs/SMART_CONTRACTS.md" },
+                  { label: "x402 Protocol", href: "https://github.com/jayteemoney/Stackscare/blob/main/docs/X402_PROTOCOL.md" },
+                  { label: "Molbot Network", href: "https://github.com/jayteemoney/Stackscare/blob/main/docs/MOLBOT_NETWORK.md" },
+                  { label: "Security Model", href: "https://github.com/jayteemoney/Stackscare/blob/main/docs/SECURITY.md" },
+                ].map((link) => (
+                  <li key={link.label}>
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-slate-500 transition hover:text-slate-300"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-            <a
-              href="https://docs.stacks.co"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs text-slate-500 transition hover:text-slate-300"
-            >
-              Stacks Docs
-            </a>
+            {/* Ecosystem */}
+            <div>
+              <h4 className="mb-4 text-xs font-bold uppercase tracking-widest text-slate-400">
+                Ecosystem
+              </h4>
+              <ul className="space-y-2.5">
+                {[
+                  { label: "Stacks Blockchain", href: "https://stacks.co" },
+                  { label: "Clarity Language", href: "https://docs.stacks.co/clarity/overview" },
+                  { label: "Hiro Wallet", href: "https://wallet.hiro.so" },
+                  { label: "Hiro Explorer", href: "https://explorer.hiro.so/?chain=testnet" },
+                  { label: "Clarinet", href: "https://docs.hiro.so/clarinet" },
+                  { label: "Pinata IPFS", href: "https://pinata.cloud" },
+                ].map((link) => (
+                  <li key={link.label}>
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1.5 text-sm text-slate-500 transition hover:text-slate-300"
+                    >
+                      {link.label}
+                      <ExternalLink size={10} className="opacity-40" />
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Contracts */}
+            <div>
+              <h4 className="mb-4 text-xs font-bold uppercase tracking-widest text-slate-400">
+                Deployed Contracts
+              </h4>
+              <div className="space-y-4">
+                <div>
+                  <p className="mb-1 text-xs font-semibold text-indigo-400">stackscare.clar</p>
+                  <a
+                    href="https://explorer.hiro.so/txid/STV9VBEA4NB0Q2N67HD6AXP2MGSEKVAJFC8GFTT7.stackscare?chain=testnet"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="break-all text-[11px] text-slate-600 font-mono transition hover:text-slate-400"
+                  >
+                    STV9VBEA4...GFTT7.stackscare
+                  </a>
+                </div>
+                <div>
+                  <p className="mb-1 text-xs font-semibold text-violet-400">molbot-registry.clar</p>
+                  <a
+                    href="https://explorer.hiro.so/txid/STV9VBEA4NB0Q2N67HD6AXP2MGSEKVAJFC8GFTT7.molbot-registry?chain=testnet"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="break-all text-[11px] text-slate-600 font-mono transition hover:text-slate-400"
+                  >
+                    STV9VBEA4...GFTT7.molbot-registry
+                  </a>
+                </div>
+                <div className="rounded-lg border border-white/5 bg-white/3 px-3 py-2">
+                  <span className="text-[10px] font-semibold uppercase tracking-widest text-emerald-400">● Testnet Live</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Divider */}
+          <div className="my-10 h-px bg-white/5" />
+
+          {/* Bottom row */}
+          <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
+            <p className="text-xs text-slate-600">
+              © 2025 StacksCare · Built for the Stacks Hackathon · MIT License
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-2">
+              {["Clarity v4", "Stacks Testnet", "x402 Protocol", "IPFS", "Next.js 16"].map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded-full border border-white/6 bg-white/3 px-2.5 py-0.5 text-[10px] font-medium text-slate-600"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </footer>

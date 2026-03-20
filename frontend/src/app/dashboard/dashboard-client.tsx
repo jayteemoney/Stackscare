@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import {
-  Shield,
   ArrowLeft,
   Activity,
   FileText,
@@ -186,8 +186,8 @@ function DashboardContent({ address }: { address: string }) {
 function ConnectPrompt({ connect }: { connect: () => void }) {
   return (
     <div className="flex flex-col items-center justify-center py-32 text-center">
-      <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-2xl bg-linear-to-br from-indigo-600 to-violet-600 shadow-xl shadow-indigo-500/30">
-        <Shield className="h-10 w-10 text-white" />
+      <div className="mb-6">
+        <Image src="/logo.jpeg" alt="StacksCare logo" width={80} height={80} className="rounded-2xl" />
       </div>
       <h1 className="mb-3 text-3xl font-extrabold text-white">
         Your Health Data,{" "}
@@ -249,9 +249,7 @@ export default function DashboardPage() {
             </Link>
             <span className="hidden sm:block text-white/15">|</span>
             <div className="flex items-center gap-1.5 sm:gap-2">
-              <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-linear-to-br from-indigo-500 to-violet-600 shadow-lg shadow-indigo-500/30">
-                <Shield className="h-3.5 w-3.5 text-white" />
-              </div>
+              <Image src="/logo.jpeg" alt="StacksCare logo" width={24} height={24} className="rounded-md" />
               <span className="font-bold text-white">StacksCare</span>
             </div>
           </div>
