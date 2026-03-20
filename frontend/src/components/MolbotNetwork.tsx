@@ -110,9 +110,9 @@ export default function MolbotNetwork() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-12">
         {/* Left: Input + Results */}
-        <div className="lg:col-span-8 space-y-5">
+        <div className="md:col-span-8 space-y-5">
           {/* Input panel */}
           <div className="glass-card relative overflow-hidden rounded-2xl p-4 sm:p-6">
             <div className="pointer-events-none absolute -top-16 -right-16 h-48 w-48 rounded-full opacity-10"
@@ -209,7 +209,7 @@ export default function MolbotNetwork() {
                       </div>
                       <div className="flex-1 pt-1">
                         <div className="flex items-center justify-between">
-                          <span className="truncate font-semibold text-white text-sm max-w-[120px] sm:max-w-none">{step.molbotName}</span>
+                          <span className="truncate font-semibold text-white text-sm">{step.molbotName}</span>
                           <span
                             className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ${
                               step.status === 'paid'
@@ -308,7 +308,7 @@ export default function MolbotNetwork() {
         </div>
 
         {/* Right: Agent cards */}
-        <div className="lg:col-span-4 space-y-4">
+        <div className="md:col-span-4 space-y-4">
           <div className="flex items-center justify-between">
             <h3 className="text-xs font-bold uppercase tracking-widest text-slate-500">
               Available AI Agents
