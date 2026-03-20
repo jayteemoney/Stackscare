@@ -171,6 +171,7 @@ async def upload_record(
     try:
         cid = await upload_encrypted_file(file_bytes, file.filename)
     except Exception as exc:
+        logger.error("Upload failed for %s: %s", file.filename, exc, exc_info=True)
         raise HTTPException(status_code=502, detail=f"IPFS upload failed: {exc}") from exc
 
     return UploadResponse(

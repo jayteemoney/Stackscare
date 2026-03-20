@@ -109,7 +109,7 @@ async def orchestrate_symptoms(symptoms: str) -> OrchestrationResult:
             # No formatter available — return raw analysis
             logger.info("No report-formatter found — returning raw analysis")
             result.success = True
-            result.total_cost_ustx = sum(s.amount_ustx for s in result.payment_trail if s.status == "paid")
+            result.total_cost_ustx = sum(s.amount_ustx for s in result.payment_trail if s.status in ("paid", "free"))
             return result
 
         logger.info(f"Orchestrator → calling {formatter.name} at {formatter.endpoint_url}")
@@ -140,7 +140,7 @@ async def orchestrate_symptoms(symptoms: str) -> OrchestrationResult:
 
         result.success = True
         result.total_cost_ustx = sum(
-            s.amount_ustx for s in result.payment_trail if s.status == "paid"
+            s.amount_ustx for s in result.payment_trail if s.status in ("paid", "free")
         )
 
         logger.info(
@@ -225,7 +225,7 @@ async def orchestrate_document(file_bytes: bytes, filename: str) -> Orchestratio
 
         result.success = True
         result.total_cost_ustx = sum(
-            s.amount_ustx for s in result.payment_trail if s.status == "paid"
+            s.amount_ustx for s in result.payment_trail if s.status in ("paid", "free")
         )
     except Exception as e:
         logger.error(f"Document orchestration failed: {e}")
